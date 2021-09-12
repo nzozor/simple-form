@@ -1,0 +1,40 @@
+form {
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    > div {
+      margin: 5px 0;
+      display: flex;
+
+      label {
+        min-width: 90px;
+      }
+      select {
+        max-width: 200px;
+      }
+      select,input:not([type='checkbox']) {
+        width: 100%;
+      }
+
+      input[type='checkbox'] {
+        margin-right: 10px;
+      }
+    }
+
+    div:last-child {
+      align-self: flex-end;
+    }
+  }
+
+}
+
+.error
+{
+ border:1px solid red;
+}
+
+.alert-danger {
+  color:red;
+}

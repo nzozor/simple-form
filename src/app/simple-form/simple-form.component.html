@@ -1,0 +1,32 @@
+<h1>Aareon Angular Test</h1>
+<form [formGroup]="myFormGroup">
+  <div>
+    <div>
+      <label>Title</label>
+      <select formControlName="title">
+        <option value="test" disabled>-- Select an option --</option>
+        <option  [value]="title.name" *ngFor="let title of titles$| async as titles" [selected]="title.isDefault">{{title.name}}</option>
+      </select>
+    </div>
+    <div>
+      <label>First name</label>
+      <input formControlName="firstName" type="text" placeholder="First name"/>
+    </div>
+    <div>
+      <label>Last name</label>
+      <input [class.error]="!isLastNameValid" formControlName="lastName" type="text" placeholder="Last name"/>
+    </div>
+    <div *ngIf="!isLastNameValid"
+    class="alert alert-danger">
+          * Last name is mandatory
+    </div>
+    <span></span>
+    <div>
+      <input type="checkbox" formControlName="acceptTerms"/>
+      <label>I accept the terms & conditions</label>
+    </div>
+    <div>
+      <button (click)="onSubmit()" [disabled]="!isTermsAndCondAcpt">Submit</button>
+    </div>
+  </div>
+</form>
