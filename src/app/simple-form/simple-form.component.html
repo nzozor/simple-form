@@ -16,14 +16,13 @@
       <label>Last name</label>
       <input [class.error]="!isLastNameValid" formControlName="lastName" type="text" placeholder="Last name"/>
     </div>
-    <div *ngIf="!isLastNameValid"
-    class="alert alert-danger">
+    <div *ngIf="!isLastNameValid" class="alert alert-danger">
           * Last name is mandatory
     </div>
     <span></span>
     <div>
-      <input type="checkbox" formControlName="acceptTerms"/>
-      <label>I accept the terms & conditions</label>
+      <input id="checkbox" type="checkbox" formControlName="acceptTerms"/>
+      <label for="checkbox">I accept the terms & conditions</label>
     </div>
     <div>
       <button (click)="onSubmit()" [disabled]="!isTermsAndCondAcpt">Submit</button>
