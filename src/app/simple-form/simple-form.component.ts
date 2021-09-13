@@ -19,7 +19,7 @@ export class SimpleFormComponent implements OnInit {
   map(titles => { 
       return titles.filter(title => title.name !== '!').sort( (a,b) => {
         if(a.name < b.name) { return -1};
-        if(a.name > b.name)  {}
+        if(a.name > b.name)  { return 1};
         return 0;
       })}
   ),
@@ -52,14 +52,14 @@ export class SimpleFormComponent implements OnInit {
 
   private displayFormData(): void {
     const valToDisplay:any = {};
-    for(let key in this.myFormGroup.controls) {
+    for(const key in this.myFormGroup.controls) {
       valToDisplay[key] = this.myFormGroup.controls[key].value;
     }
     console.log(valToDisplay);
   }
 
   private triggerValidation(): void {
-    for(let key in this.myFormGroup.controls) {
+    for(const key in this.myFormGroup.controls) {
       const control = this.myFormGroup.get(key) as AbstractControl;        
       control.markAsTouched({ onlySelf: true }); 
     }
